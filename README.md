@@ -30,16 +30,19 @@ I will download a powershell script from github to run in our Honeypot virtual m
 
 <h2>Installation steps</h2>
 
--  Step 1: Observe Event Viewer Logs in VM
+-  Step 1: Clean Up the Raw data in our custom log
 
-I Log in VM using RDP. Type on the menu "Event viewer". Click on windows log, and then security. From there you can see all the event success and failure. That's where we going to get the IP addresses from all the attackers to plug into Sentinel to have their geolocation.
-![image](https://github.com/danielbangm/map-in-sentinel/assets/22795502/dc3b3572-e09f-4f30-b5a4-bf36bd321744)
+Now that we have created our custom logs entries imported from our virtual machine, we have have data disorganized in our custom log analytic. We are going to sort that data by longitude, latitude, destination etc... To do that, we just click on the dropdown arrow on any log, click on the three dots and then "extract fields. Just highlight the value and call it by the corresponding field title and field type
+![image](https://github.com/danielbangm/Extracting-File/assets/22795502/eb0b303d-5caf-4732-87f6-b2626ba5c701)
 
--  Step 2: Turn off windows Firewall on VM
 
-Log in VM and search for wf.msc on the menu. Click on Windows Defender Firewall Properties. Go to Domain profile, Private profile, Public profile and turn them off. I tried to ping my VM from my actual computer and we can see that the echo is now accepted by the VM because we turned the firewall off.
-![image](https://github.com/danielbangm/map-in-sentinel/assets/22795502/8123275d-9d3c-4385-84e6-4f4bf37fd394)
-![image](https://github.com/danielbangm/map-in-sentinel/assets/22795502/d2ad11fb-16cc-473d-8e63-b04820f558bd)
+-  Step 2: Setting up Map in Azure Sentile
+
+Go to portal.azure and type Azure Sentinel. From the overview you can see logs that are coming in, we can see the failed RDP with geolocation. The goal here is to set up our own map. Click on workbook, then add workbook. Click on edit, and remove the two default widgets that come with workbook. Now let's add a query and paste our  Log analytics workspace Query.
+![image](https://github.com/danielbangm/Extracting-File/assets/22795502/801a74bd-b345-4e1f-9533-d692c0611997)
+Now choose to vizualise it  with Map, We can even plot things in the map by country
+![image](https://github.com/danielbangm/Extracting-File/assets/22795502/3131578e-f0d0-4142-a168-ec6ad487d347)
+
 
 -  Step 3: Download the powershell script and sign up for ipgeolocalisation.io
 
