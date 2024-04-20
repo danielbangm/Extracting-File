@@ -2,21 +2,21 @@
 <img src="https://shorturl.at/kDMN6" />
 </p>
 
-<h1>Setup map in Azure sentinel with Latitude and Longitude</h1>
+<h1>Watch LIVE ATTACKS on my Map Azure Sentinel</h1>
 
 I will download a powershell script from github to run in our Honeypot virtual machine to capture all event logs. For that, we will turn off windows defender firewall on vm first.
 
 <h2>Objectives</h2>
 
--  Understanding event logs
+-  setting up map Azure Sentinel
+-  Extracting fields to sort data from custom logs
 -  Understanding the use of windows Defender Firewall
 -  Gain a better understanding of how to run a script with powershell ISE
 
 <h2>Environments and Technologies Used</h2>
 
 - Virtual Machine(Honeypot-vm)
-- Windows Defender Firewall
-- Event logs
+- Azure Sentil
 - PowerShell ISE
 - Remote Desktop
 
@@ -44,19 +44,11 @@ Now choose to vizualise it  with Map, We can even plot things in the map by coun
 ![image](https://github.com/danielbangm/Extracting-File/assets/22795502/3131578e-f0d0-4142-a168-ec6ad487d347)
 
 
--  Step 3: Download the powershell script and sign up for ipgeolocalisation.io
+-  Step 3: Observing Live Attacks
 
-I downloaded this <a href="https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1">Powershell Script</a> which is essentially a github repository. Click on the custom securitylog exporter, either download or just copy it and then open powershell ISE on the VM. Create new file and paste it, save it on the desktop as "log exporter.The only thing to modify on that scrip is the API key. In order to get that, we have to sign up for ipgeolocalisation.io and get our API key replaced in the powershell script
-![image](https://github.com/danielbangm/map-in-sentinel/assets/22795502/ea1fef18-f0c0-49df-8258-0c24be6300bb)
+I left my map and VM up for 48h to see if alot more attacker would try to log in to our honeypot. From the map, we can see there's so many brute forces from all over the place(China, Philippines, Taiwan, Russia, India). We can see LIVE attacks to our Virtual machine. This is just Remote Desk login attemps from all over the world because SMB is opened over the internet so no doubt people are trying to authenticate
+![image](https://github.com/danielbangm/Extracting-File/assets/22795502/55b6c6b4-908e-413a-9108-ec246c79dcf2)
 
--  Step 4: Run the script
+CONCLUSION
 
-After getting your own API key, launch powershell ISE and run the script in Vm. The API keyy allows us to get the geolocalisation and longitute, latitude of the attackers. Essentially what it does, it looks through the event logs, security logs, then grabs all the events of people who failed to log in and grabs their IP address, and geolocalisation data to create a new log file
-![image](https://github.com/danielbangm/map-in-sentinel/assets/22795502/10569e1e-3b84-41c7-8610-99d53730836a)
-
-- Step 5: Create a custom log in our log analytic workspaces
-
-  I go backt to portal.azure, let's reate a custom log inside our log analytic workspace that will allow us to bring that custom log with geodata into our logs analytic workspaces. For that we also need to copy the log data from our VM located in C:\ProgramData\failed_rdp.log and paste it in a new word document in our local machine . Now let's create a custom log named "FAILED_RDP_WITH_GEO_CL"
-  ![image](https://github.com/danielbangm/map-in-sentinel/assets/22795502/790d5423-6b55-4a6e-9d8a-803632558748)
-
-
+As soon as anythng is put on the internet, whether is your computer with a routable IP address, people with try to get into it no matter what you are, if you are a big company or a real estate property, you will be a target of attackers. We should always avoid using the username of "administrator" because that is the most guest's username trying to break into my Virtual Machine. Just try to avoid using common usernames and also use MFA and restricting RDP 
