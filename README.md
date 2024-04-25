@@ -36,7 +36,7 @@ Now that we have created our custom logs entries imported from our virtual machi
 ![image](https://github.com/danielbangm/Extracting-File/assets/22795502/eb0b303d-5caf-4732-87f6-b2626ba5c701)
 
 
--  Step 2: Setting up Map in Azure Sentile
+-  Step 2: Setting up Map in Azure Sentinel
 
 Go to portal.azure and type Azure Sentinel. From the overview you can see logs that are coming in, we can see the failed RDP with geolocation. The goal here is to set up our own map. Click on workbook, then add workbook. Click on edit, and remove the two default widgets that come with workbook. Now let's add a query and paste our  Log analytics workspace Query.
 ![image](https://github.com/danielbangm/Extracting-File/assets/22795502/801a74bd-b345-4e1f-9533-d692c0611997)
