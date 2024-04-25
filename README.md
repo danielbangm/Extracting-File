@@ -51,6 +51,6 @@ I left my map and VM up for 48h to see if alot more attacker would try to log in
 
 CONCLUSION
 
-As soon as anythng is put on the internet, whether is your computer with a routable IP address, people with try to get into it no matter what you are, if you are a big company or a real estate property, you will be a target of attackers. We should always avoid using the username of "administrator" because that is the most guest's username trying to break into my Virtual Machine. Just try to avoid using common usernames and also use MFA and restricting RDP 
+Anythng put on the internet, whether is your computer with a routable IP address, people with try to get into it no matter what you are, if you are a big company or a real estate property, you will be a target of attackers. We should always avoid using the username of "administrator" because that is the most guest's username trying to break into my Virtual Machine. Just try to avoid using common usernames and also use MFA and restricting RDP 
 ![image](https://github.com/danielbangm/Extracting-File/assets/22795502/4241b66b-f59e-4340-ad34-3dbb1342e52e)
 
